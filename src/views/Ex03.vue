@@ -3,7 +3,7 @@
     <input type="text" v-model="first" />
     +
     <input type="text" v-model="second" />
-    ={{ addNum }}
+    ={{ addCalc }}
   </div>
 </template>
 
@@ -14,11 +14,11 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class sampleComponent extends Vue {
   private first = '';
   private second = '';
-  private addCalc = 0;
+  private addNum = 0;
 
-  get addNum(): number {
-    this.addCalc = parseInt(this.first) + parseInt(this.second);
-    return this.addCalc ? this.addCalc : 0;
+  get addCalc(): number {
+    this.addNum = parseInt(this.first) + parseInt(this.second);
+    return this.addNum ? this.addNum : 0;
   }
 }
 </script>
