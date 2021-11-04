@@ -1,6 +1,9 @@
 <template>
   <div>
-    <input type="text" v- />
+    <input type="text" v-model="first" />
+    +
+    <input type="text" v-model="second" />
+    ={{ addNum }}
   </div>
 </template>
 
@@ -9,24 +12,13 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class sampleComponent extends Vue {
-  private name = '';
-  private age = 0;
-  private ageTenLater = 0;
-  private hobbies: string[] = [];
-  private url = '#';
-  private imageUrl = '';
-  private noCanClick = false;
+  private first = '';
+  private second = '';
+  private addCalc = 0;
 
-  onClick(): void {
-    this.name = '田村孝輔';
-    this.age = 25;
-    this.ageTenLater = this.age + 10;
-    this.hobbies[0] = 'スイム';
-    this.hobbies[1] = 'バイク';
-    this.hobbies[2] = 'ラン';
-    this.url = 'https://www.rakus-partners.co.jp/';
-    this.imageUrl = 'img/irobot.jpg';
-    this.noCanClick = true;
+  get addNum(): number {
+    this.addCalc = parseInt(this.first) + parseInt(this.second);
+    return this.addCalc ? this.addCalc : 0;
   }
 }
 </script>
